@@ -19,7 +19,11 @@ type Data = {
 }
 
 export default function ExchangeRates() {
-  const {loading, error, data} = useQuery<Data>(EXCHANGE_RATES);
+  const {loading, error, data} = useQuery<Data>(EXCHANGE_RATES, {
+    variables: {
+      currency: "RMB"
+    }
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
